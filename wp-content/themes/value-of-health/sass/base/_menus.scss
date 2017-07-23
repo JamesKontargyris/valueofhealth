@@ -5,6 +5,7 @@
     top:8.4rem;
     left:0;
     width:100%;
+    padding:1rem 0;
     background:linear-gradient(to bottom, $green 40%, darken($green, 3%) 100%), $green;
     border-radius: 0 0 0.7rem 0.7rem;
     box-shadow: 0 0.2rem 0.1rem rgba(black, 0.2);
@@ -17,7 +18,7 @@
     li {
       width:100%;
       text-align: center;
-      padding:2rem;
+      padding:1rem;
     }
   }
 
