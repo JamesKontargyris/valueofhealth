@@ -1,0 +1,65 @@
+.download-extract {
+  @include clearfix;
+  margin-bottom:$base-spacing;
+  background:linear-gradient(to bottom right, tint($green, 80%) 40%, tint($green, 65%) 100%);
+  padding:$base-spacing;
+  border-radius: 0.5rem;
+
+  @include media($l-up) {
+    margin-left:2.5rem;
+  }
+}
+
+.download-extract__image {
+  display: none;
+
+  @include media($l-up) {
+    display: block;
+    float: left;
+    max-width:10rem;
+    margin-left:-4rem;
+    margin-right:2rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.2rem 0.2rem rgba(black, 0.2);
+  }
+}
+
+.download-extract__details {
+  display: block;
+  overflow: hidden;
+}
+
+.download-extract__details-col1 {
+  @include media($l-up) {
+    @include span-columns(5);
+  }
+}
+.download-extract__details-col2 {
+  margin-top:$base-spacing;
+
+  @include media($l-up) {
+    @include span-columns(7);
+    margin-top:0;
+  }
+}
+
+.download-extract__title {
+  font-family: $heading-font-family;
+  font-weight:700;
+  @include font-size(24,28);
+  color:$blue;
+  letter-spacing: -0.05rem;
+  margin-bottom:$small-spacing;
+}
+
+.download-extract__meta {
+  text-transform: uppercase;
+  font-weight: 700;
+  color:$green;
+  @include font-size(13,18);
+  margin-bottom:$base-spacing;
+}
+
+.download-extract__description {
+  @include font-size(14, 18);
+}

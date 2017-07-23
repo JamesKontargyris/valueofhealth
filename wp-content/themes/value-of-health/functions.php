@@ -49,8 +49,12 @@ function value_of_health_setup() {
 	) );
 
 	// Image sizes
-	add_image_size('news-extract', 300, 300, true);
+	add_image_size('news-extract', 500, 300, true);
 	add_image_size('news-banner', 1000, 500, true);
+	add_image_size('download-cover', 420, 600, true);
+
+	// Apply CSS stylesheet to WYSIWYG back-end editor
+	add_editor_style( 'style.css' );
 
 	// unregister widgets we won't use
 	function remove_default_widgets() {

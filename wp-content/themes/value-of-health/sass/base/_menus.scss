@@ -43,10 +43,11 @@
    font-weight:700;
 
    >li, .site-header__nav__menu-item {
-     float:left;
      @include font-size(18);
-     &:not(:first-child) {
-       margin-left:3rem;
+
+     @include media($xl-up) {
+       float:left;
+       margin-right:3rem;
      }
    }
  }

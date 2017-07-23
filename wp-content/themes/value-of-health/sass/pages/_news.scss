@@ -71,25 +71,39 @@
 
 .news-extract {
   @include clearfix;
-  margin-bottom:$base-spacing;
-  padding-top:$base-spacing;
+  padding-top:$base-spacing * 2;
   border-top:1px solid $light-grey;
+  margin-bottom:$base-spacing * 2;
+}
+
+.news-extract--mini {
+  padding-top:$base-spacing;
+  margin-bottom:$base-spacing;
 }
 
 .news-extract__image-link {
-  @include clearfix;
-  float: left;
 
   &:hover {
     img {
       opacity: 0.7;
     }
   }
+
+  @include media($l-up) {
+    @include clearfix;
+    float: left;
+  }
 }
 
 .news-extract__image {
-  max-width:15rem;
-  margin-right:2rem;
+  display: block;
+  margin:0 auto $base-spacing;
+
+  @include media($l-up) {
+    max-width:15rem;
+    margin-right:2rem;
+    margin-bottom:0;
+  }
 }
 
 .news-extract__details {
@@ -98,13 +112,77 @@
 }
 
 .news-extract__title {
+  font-family: $heading-font-family;
   font-weight:700;
-  @include font-size(24,30);
+  @include font-size(21,24);
   letter-spacing: -0.05rem;
   margin-bottom:$small-spacing;
 }
 
+.news-extract__title--mini {
+  @include font-size(18, 21);
+}
+
 .news-extract__meta {
+  text-transform: uppercase;
+  font-weight: 700;
+  @include font-size(14,16);
+  margin-bottom:$small-spacing;
+}
+
+.news-extract__meta--mini {
+  @include font-size(13,15);
+}
+
+
+
+.latest-news-extract {
+  @include clearfix;
+  margin-bottom:$base-spacing * 2;
+  background:linear-gradient(to bottom right, tint($green, 80%) 40%, tint($green, 65%) 100%);
+  padding:$base-spacing;
+  border-radius: 0.5rem;
+}
+
+.latest-news-extract__image-link {
+
+  &:hover {
+    img {
+      opacity: 0.7;
+    }
+  }
+
+  @include media($xl-up) {
+    @include clearfix;
+    float: left;
+  }
+}
+
+.latest-news-extract__image {
+  display: block;
+  margin:0 auto $base-spacing;
+
+  @include media($xl-up) {
+    max-width:40rem;
+    margin-right:2rem;
+    margin-bottom:0;
+  }
+}
+
+.latest-news-extract__details {
+  display: block;
+  overflow: hidden;
+}
+
+.latest-news-extract__title {
+  font-family: $heading-font-family;
+  font-weight:700;
+  @include font-size(32,36);
+  letter-spacing: -0.05rem;
+  margin-bottom:$base-spacing;
+}
+
+.latest-news-extract__meta {
   text-transform: uppercase;
   font-weight: 700;
   @include font-size(14,16);

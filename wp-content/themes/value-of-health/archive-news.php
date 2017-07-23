@@ -7,6 +7,7 @@
  * @package Value_of_Health
  */
 
+$count = 0;
 get_header(); ?>
 
     <div class="page-heading-group">
@@ -18,9 +19,26 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); $count++; ?>
 
-                <?php get_template_part( 'template-parts/content', 'news-extract' ); ?>
+                <?php if($count == 1) : ?>
+					<?php get_template_part( 'template-parts/content', 'latest-news-extract' ); ?>
+				<?php elseif($count == 2) : ?>
+                    <h5 class="text--green">More News</h5>
+				<?php endif; ?>
+
+                <?php if($count > 1 && $count <= 5) : ?>
+				    <?php get_template_part( 'template-parts/content', 'news-extract' ); ?>
+                <?php endif; ?>
+
+                <?php if($count == 6) : ?>
+                    <h5 class="text--green">Older News</h5>
+                <?php endif; ?>
+
+				<?php if($count > 5) : ?>
+					<?php get_template_part( 'template-parts/content', 'news-extract-mini' ); ?>
+				<?php endif; ?>
+
 
 			<?php endwhile;
 

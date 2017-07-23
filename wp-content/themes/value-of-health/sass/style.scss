@@ -44,9 +44,10 @@ Text Domain: edima
 'layout/structure';
 
 /// Components (modules)
-//@import
-//'components/modal';
+@import
+'components/buttons';
 
 /// Page-specific stylesheets
 @import
-'pages/news';
+'pages/news',
+'pages/download';
