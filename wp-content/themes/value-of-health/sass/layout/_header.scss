@@ -1,0 +1,87 @@
+.site-header {
+  @include clearfix;
+  position: relative;
+  padding:$base-spacing 1rem;
+  background:linear-gradient(to bottom, white 70%, darken(white, 7%) 100%), white;
+  border-bottom:0.4rem solid $blue;
+  border-radius: 0 0 0.7rem 0.7rem;
+  box-shadow: 0 0.2rem 0.1rem rgba(black, 0.2);
+  height:9rem;
+  margin-bottom:$base-spacing * 2;
+
+  @include media($xl-up) {
+    height:11rem;
+    padding:$base-spacing * 1.5 3rem;
+  }
+
+  &:after {
+    position: absolute;
+    content:' ';
+    border-bottom:0.4rem solid $green;
+    border-radius: 0 0 10px 10px;
+    bottom:0;
+    left:0;
+    width:100%;
+  }
+}
+
+.site-header__logo {
+  @include span-columns(6);
+
+  @include media($xl-up) {
+    @include span-columns(4);
+  }
+
+  svg {
+    height:6rem;
+
+    @include media($xl-up) {
+      height:7rem;
+    }
+
+    #logomark {
+      display:none;
+
+      @include media($m-up) {
+        display: block;
+      }
+    }
+
+    #wordmark {
+      transform: translate(-16rem, 0);
+
+      @include media($m-up) {
+        transform: translate(0, 0);
+      }
+    }
+  }
+}
+
+.site-header__nav {
+  @include span-columns(6);
+  height: 9rem - ($base-spacing * 2);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;
+
+  @include media($xl-up) {
+    @include span-columns(8);
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    height: 11rem - ($base-spacing * 3);
+  }
+}
+
+.menu-toggle {
+  background:transparent;
+  border:0;
+  border-radius: 0;
+  padding:0;
+  margin:0 1rem 0 0;
+  @include font-size(28, 28);
+  color:$green;
+}
+

@@ -1,12 +1,12 @@
 // Typography
-$base-font-family: 'Montserrat', sans-serif;
-$heading-font-family: 'Montserrat', sans-serif;
+$base-font-family: 'Lato', sans-serif;
+$heading-font-family: 'Zilla Slab', 'Lato', sans-serif;
 
 // Font Sizes
-$base-font-size: 1.5rem;
+$base-font-size: 1.6rem;
 
 // Line height
-$base-line-height: 1.8;
+$base-line-height: 1.5;
 $heading-line-height: 1.2;
 
 // Other Sizes
@@ -17,26 +17,26 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Primary Colours
-$blue: #003b77;
-$light-blue: #cfdae6;
-$red: #cd0f36;
-$green: #00a0a3;
-$light-green: #daebe9;
-$light-grey: #ebebeb;
-$light-light-grey: lighten($light-grey, 5%);
-$grey: #9d9d9d;
-$dark-grey: #5a5a5a;
-$orange: #EDAE49;
+$blue: #244a7a;
+$green: #8ab232;
 
-// Other Colours
-$white: hsl(0, 0, 100);
+// Secondary Colours
+$coral: #ED6A5E;
+$light-blue: #7EA8BE;
+$green-blue: #2176AE;
+
+// Tertiary Colours
+$white: #ffffff;
+$light-grey: #d5d5d5;
+$grey: #9c9c9c;
+$dark-grey: #747474;
 $soft-black: #222222;
 
 
 // Font Colors
 $base-font-color: $soft-black;
-$action-color: $blue;
-$link-color:$green;
+$action-color: $green-blue;
+$link-color:$green-blue;
 
 // Border
 $base-border-color: $light-grey;

@@ -10,22 +10,27 @@
  */
 
 ?>
-
+        </div> <!--.container-->
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'value-of-health' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'value-of-health' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'value-of-health' ), 'value-of-health', '<a href="https://automattic.com/">Underscores.me</a>' );
-			?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+    <footer class="site-footer">
+        <div class="site-footer__logoicon"><?php echo file_get_contents(get_template_directory_uri() . '/img/svg/voh_logo_icon.svg'); ?></div>
+        <div class="site-footer__content">
+	        <?php
+	        wp_nav_menu( array(
+		        'theme_location' => 'secondary',
+		        'menu_id'        => 'secondary-menu',
+		        'menu_class' => 'site-footer__nav__menu',
+
+	        ) );
+	        ?>
+        </div>
+    </footer>
+    <div class="legal-footer">
+        &copy; The Value of Health <?php echo date('Y'); ?>. All rights reserved.
+    </div>
+
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

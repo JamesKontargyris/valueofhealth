@@ -1,0 +1,21 @@
+.sidebar-block {
+  background:linear-gradient(to bottom, white 70%, darken(white, 4%) 100%), white;
+  border-radius: 0.5rem;
+  padding:$base-spacing 1.5rem;
+  @include font-size(14, 18);
+  box-shadow: 0 0.2rem 0.1rem rgba(black, 0.1);
+  margin-bottom:$base-spacing;
+}
+
+h6.sidebar-block__title {
+  padding:1rem 1.5rem;
+  margin:-$base-spacing -1.5rem $base-spacing -1.5rem;
+  background:linear-gradient(to bottom, $light-grey 0%, darken($light-grey, 6%) 100%);
+  color:$blue;
+  border-radius: 0.5rem 0.5rem 0 0;
+
+  &.highlight {
+    background:linear-gradient(to bottom, $blue 0%, darken($blue, 6%) 100%);
+    color:white;
+  }
+}

@@ -283,7 +283,7 @@ h6 {
 }
 
 p {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
 }
 
 dfn,
@@ -613,9 +613,6 @@ a:active {
 }
 
 @media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
   .main-navigation ul {
     display: block;
   }

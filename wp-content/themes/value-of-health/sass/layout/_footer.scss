@@ -1,0 +1,49 @@
+footer.site-footer {
+  position: relative;
+  padding:$base-spacing * 2 0 $base-spacing;
+  background: $green;
+  margin-top:$base-spacing * 5;
+}
+
+.site-footer__logoicon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color:$green;
+  top:-3.2rem;
+  left:50%;
+  margin-left:-3.2rem;
+  width:6.4rem;
+  height:6.4rem;
+
+  svg {
+    width:5.2rem;
+    height:5.2rem;
+    margin-left:-0.3rem; // Hack to position logo centre visually, not exactly
+  }
+}
+
+.site-footer__content {
+  @include outer-container();
+  @include font-size(14, 18);
+  text-align: center;
+
+  a:link, a:visited {
+    color:white;
+
+    &:hover {
+      opacity:0.7;
+    }
+  }
+}
+
+.legal-footer {
+  background-color: $blue;
+  color:lighten($blue, 50%);
+  @include font-size(10, 12);
+  padding:$base-spacing * 0.5 0;
+  text-align: center;
+}

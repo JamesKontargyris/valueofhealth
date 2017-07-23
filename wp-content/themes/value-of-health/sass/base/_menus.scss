@@ -1,0 +1,199 @@
+#primary-menu {
+  @include media(max-width 1000px) {
+    display:none;
+    position: absolute;
+    top:8.4rem;
+    left:0;
+    width:100%;
+    background:linear-gradient(to bottom, $green 40%, darken($green, 3%) 100%), $green;
+    border-radius: 0 0 0.7rem 0.7rem;
+    box-shadow: 0 0.2rem 0.1rem rgba(black, 0.2);
+
+    a:link, a:visited {
+      color:white;
+      text-align: center;
+    }
+
+    li {
+      width:100%;
+      text-align: center;
+      padding:2rem;
+    }
+  }
+
+  @include media($xl-up) {
+    display: block;
+    box-shadow: none;
+  }
+}
+
+.menu-toggle {
+  @include media($xl-up) {
+    display: none;
+  }
+}
+
+.site-header__nav__menu,
+ .site-header__nav__menu ul {
+   @include clearfix;
+   list-style: none;
+   margin:0;
+   padding:0;
+   font-family: $heading-font-family;
+   font-weight:700;
+
+   >li, .site-header__nav__menu-item {
+     float:left;
+     @include font-size(18);
+     &:not(:first-child) {
+       margin-left:3rem;
+     }
+   }
+ }
+
+.site-footer__nav__menu,
+.site-footer__nav__menu ul {
+  @include clearfix;
+  list-style: none;
+  margin:0 auto;
+  padding:0;
+  font-family: $heading-font-family;
+  font-weight:400;
+  text-align: center;
+
+  >li, .site-header__nav__menu-item {
+    display: inline-block;
+    @include font-size(13, 14);
+    padding:0 1rem;
+    border-right:1px solid $blue;
+    &:last-child {
+      border-right:none;
+    }
+  }
+}
+
+// Vertical Menu
+.vertical-menu,
+aside .menu {
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+.vertical-menu__item--large-spacing,
+.vertical-menu--large-spacing li {
+  &:not(:last-of-type) {
+    margin-bottom:1.5rem;
+  }
+}
+
+.vertical-menu--large-text,
+aside .menu {
+  @include font-size(15, 16);
+}
+
+.vertical-menu__link:link,
+.vertical-menu__link:visited,
+.vertical-menu__item a:link,
+.vertical-menu__item a:visited,
+aside .menu-item a:link,
+aside .menu-item a:visited {
+  display:block;
+  @include font-size(14,15);
+  padding:1rem 0;
+
+  &.active {
+    background: linear-gradient(to bottom, $green 0%, darken($green, 4%) 100%);
+    margin:0 -1.5rem;
+    padding-left:1.5rem;
+    color:white;
+    font-weight:800;
+    cursor: default;
+    box-shadow:0 0.2rem 0.2rem rgba(black, 0.1);
+    &:hover {
+      color:white !important;
+    }
+  }
+}
+
+.vertical-menu__link:hover,
+.vertical-menu__item a:hover,
+aside .menu-item a:hover {
+  background: rgba($green, 0.1);
+  margin:0 -1.5rem;
+  padding-left:1.5rem;
+  padding-right:1.5rem;
+}
+
+
+// Horizontal menu
+.horizontal-menu,
+.horizontal-menu ul {
+  @include clearfix;
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+.horizontal-menu--centered,
+.horizontal-menu--centered ul {
+  display:inline-block;
+  margin:0 auto;
+}
+
+.horizontal-menu__item,
+.horizontal-menu li {
+  display:block;
+  float:left;
+
+  &:not(:last-of-type) {
+    margin-right:3rem;
+  }
+}
+
+.horizontal-menu__link:link,
+.horizontal-menu__link:visited,
+.horizontal-menu__item a:link,
+.horizontal-menu__item a:visited,
+.horizontal-menu li a:link,
+.horizontal-menu li a:visited {
+
+  &.active {
+    border-radius: $base-border-radius;
+    background: linear-gradient(to bottom, $green 0%, darken($green, 4%) 100%);
+    margin:0 -1rem;
+    padding-left:1rem;
+    color:white;
+    font-weight:800;
+    cursor: default;
+    box-shadow:0 0.2rem 0.2rem rgba(black, 0.1);
+    &:hover {
+      color:white !important;
+    }
+  }
+}
+
+.horizontal-menu--white-links {
+  .horizontal-menu__link:link,
+  .horizontal-menu__link:visited,
+  .horizontal-menu__item a:link,
+  .horizontal-menu__item a:visited,
+  li a:link,
+  li a:visited,
+  ul li a:link,
+  ul li a:visited {
+    color:white;
+    &:hover {
+      opacity:0.7;
+    }
+  }
+}
+
+.horizontal-menu__link:hover,
+.horizontal-menu__item a:hover {
+  color:tint($blue, 40%) !important;
+  background: rgba(black, 0.1);
+  margin:0 -2rem;
+  padding-left:2rem;
+  padding-right:2rem;
+}

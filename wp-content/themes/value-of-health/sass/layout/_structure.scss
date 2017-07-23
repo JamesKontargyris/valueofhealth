@@ -1,5 +1,11 @@
+#content {
+  @include outer-container();
+}
+
+
 #primary {
   @include span-columns(12);
+  margin-bottom:$base-spacing;
   @include media($l-up) { @include span-columns(8); }
   &.full-width { @include span-columns(12); }
   //If layout includes the sidebar on the left, shift the primary column to the right
@@ -12,16 +18,15 @@
 
 #secondary {
   @include span-columns(12);
+  margin-bottom:$base-spacing;
   @include media($l-up) { @include span-columns(4); }
   aside {
     @include clearfix;
     margin-bottom:$base-spacing;
     padding-bottom:$base-spacing;
-    border-bottom:1px solid darken($light-grey, 10%);
 
     &:last-of-type {
       margin-bottom:0;
-      padding-bottom:0;
       border-bottom:none;
     }
   }
