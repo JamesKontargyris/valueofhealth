@@ -1,0 +1,40 @@
+* {
+  z-index: z('default');
+}
+
+html {
+  min-height:100%;
+}
+body {
+  min-height:100%;
+  overflow-x: hidden;
+  background:
+          url(img/bg_maze_white.png) top left repeat,
+          darken(white, 4%);
+}
+
+hr {
+  border: 0;
+  border-bottom:1px dotted $grey;
+  height: 0.1rem;
+  margin: $base-spacing 0;
+  &.large-spacing {
+    margin: $base-spacing * 2 0;
+  }
+}
+
+.entry-content {
+  margin:0;
+}
+
+.hentry {
+  margin:0;
+}
+
+aside {
+  width: 100%;
+}
+
+#content {
+  @include clearfix;
+}

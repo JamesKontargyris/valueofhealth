@@ -1,0 +1,26 @@
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size * 0.90;
+  line-height: $base-line-height * 0.90;
+
+  @include media($l-up) {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size;
+  line-height: $heading-line-height;
+  margin: 0 0 $base-spacing;
+  font-weight: 700;
+
+}

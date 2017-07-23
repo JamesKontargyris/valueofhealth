@@ -1,0 +1,373 @@
+// Baseline, measured in pixels
+// The value should be the same as the font-size value for the html element
+// If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
+// then the variable below would be 10px.
+@function parseInt($n) { /* 2 */
+  @return $n / ($n * 0 + 1);
+}
+
+
+/// Rem font size with pixel fallback
+/// @access public
+/// @param {Integer} $sizeValue
+@mixin font-size($size: 16, $lineHeight: (parseInt($size) * 1.5)) {
+  font-size: parseInt($size) * 1px;
+  line-height: parseInt($lineHeight) * 1px;
+  font-size: (parseInt($size) / 10) + rem;
+  line-height: (parseInt($lineHeight) / 10) + rem;
+}
+
+
+
+@mixin rem($property, $values) {
+  $px : (); /* 3 */
+  $rem: (); /* 3 */
+
+  @each $value in $values { /* 4 */
+
+    @if $value == 0 or $value == auto { /* 5 */
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+
+    @else {
+      $unit: unit($value);    /* 6 */
+      $val: parseInt($value); /* 6 */
+
+      @if $unit == "px" {  /* 7 */
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / 10 + rem));
+      }
+
+      @if $unit == "rem" { /* 7 */
+        $px : append($px,  ($val * 10 + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  @if $px == $rem {     /* 8 */
+    #{$property}: $px;  /* 9 */
+  } @else {
+    #{$property}: $px;  /* 9 */
+    #{$property}: $rem; /* 9 */
+  }
+}
+
+/// Responsive breakpoint manager
+/// @access public
+/// @param {String} $breakpoint - Breakpoint
+/// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+                    type-of($raw-query) == 'string',
+                    unquote($raw-query),
+                    inspect($raw-query)
+    );
+
+    @include media(#{$query}) {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+/// Helper to size an element
+/// @author Hugo Giraudel
+/// @param {Length} $width
+/// @param {Length} $height
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Helper to add padding to an element
+/// @param $value
+@mixin pad($value: 20px) {
+  padding-left: parseInt($value) * 1px;
+  @include rem('padding-left', $value);
+  padding-right: parseInt($value) * 1px;
+  @include rem('padding-right', $value);
+  padding-top: parseInt($value) * 1px;
+  @include rem('padding-top', $value);
+  padding-bottom: parseInt($value) * 1px;
+  @include rem('padding-bottom', $value);
+}
+
+/// Helper to add padding to top and bottom of element
+/// @param $value
+@mixin tb-pad($value: 10px) {
+  padding-top: parseInt($value) * 1px;
+  @include rem('padding-top', $value);
+  padding-bottom: parseInt($value) * 1px;
+  @include rem('padding-bottom', $value);
+}
+
+/// Helper to add padding to left and right of element
+/// @param $value
+@mixin lr-pad($value: 20px) {
+  padding-left: parseInt($value) * 1px;
+  @include rem('padding-left', $value);
+  padding-right: parseInt($value) * 1px;
+  @include rem('padding-right', $value);
+}
+
+/// Helper function for font weights
+@mixin font-weight($weight: 'regular') {
+  font-family: "UniformRounded--#{$weight}", sans-serif;
+}
+
+
+/// Grid mixins
+// 1/4 width on Desktop and adjust appropriately based on device size
+@mixin one-quarter {
+  @include media($xs) {
+    @include span-columns(12);
+    @include omega(1n);
+  }
+  @include media($s) {
+    @include span-columns(12);
+    @include omega(1);
+  }
+  @include media($m) {
+    @include span-columns(12);
+    @include omega(1);
+  }
+  @include media($l) {
+    @include span-columns(12);
+    @include omega(1);
+  }
+  @include media($xl) {
+    @include span-columns(3);
+    @include omega(4n);
+  }
+}
+
+// 1/4 width on Desktop - no omegas - useful for mixing with other mixins such as one quarter + three quarter
+@mixin one-quarter-nom {
+  @include media($xs) {
+    @include span-columns(12);
+  }
+  @include media($s) {
+    @include span-columns(12);
+  }
+  @include media($m) {
+    @include span-columns(12);
+  }
+  @include media($l) {
+    @include span-columns(12);
+  }
+  @include media($xl) {
+    @include span-columns(3);
+  }
+}
+
+// 1/3 width on Desktop
+@mixin one-third {
+  @include media($xs) {
+    @include span-columns(12);
+    @include omega(1n);
+  }
+  @include media($s) {
+    @include span-columns(12);
+    @include omega(1n);
+  }
+  @include media($m) {
+    @include span-columns(12);
+    @include omega(1n);
+  }
+  @include media($l) {
+    @include span-columns(12);
+    @include omega(1n);
+  }
+  @include media($xl) {
+    @include span-columns(4);
+    @include omega(3n);
+  }
+}
+
+// 1/3 width on Desktop - no omega
+@mixin one-third-nom {
+  @include media($xs) {
+    @include span-columns(12);
+  }
+  @include media($s) {
+    @include span-columns(12);
+  }
+  @include media($m) {
+    @include span-columns(12);
+  }
+  @include media($l) {
+    @include span-columns(12);
+  }
+  @include media($xl) {
+    @include span-columns(4);
+  }
+}
+
+// 2/3 on Desktop - no omega
+@mixin two-thirds-nom {
+  @include media($xs) {
+    @include span-columns(12);
+  }
+  @include media($s) {
+    @include span-columns(12);
+  }
+  @include media($m) {
+    @include span-columns(12);
+  }
+  @include media($l) {
+    @include span-columns(12);
+  }
+  @include media($xl) {
+    @include span-columns(8);
+  }
+}
+
+// 3/4 on Desktop - no omega
+@mixin three-quarters-nom {
+  @include media($xs) {
+    @include span-columns(12);
+  }
+  @include media($s) {
+    @include span-columns(12);
+  }
+  @include media($m) {
+    @include span-columns(12);
+  }
+  @include media($l) {
+    @include span-columns(12);
+  }
+  @include media($xl) {
+    @include span-columns(9);
+  }
+}
+
+// 1/2 on Desktop
+@mixin one-half {
+  @include media($xs) {
+    @include span-columns(12);
+  }
+  @include media($s) {
+    @include span-columns(12);
+    @include omega(1n);
+  }
+  @include media($m) {
+    @include span-columns(12);
+    @include omega(1n);
+  }
+  @include media($l) {
+    @include span-columns(12);
+    @include omega(1n);
+  }
+  @include media($xl) {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+}
+
+
+// 1/2 on Desktop - no omega
+@mixin one-half-nom {
+  @include media($xs) {
+    @include span-columns(12);
+  }
+  @include media($s) {
+    @include span-columns(12);
+  }
+  @include media($m) {
+    @include span-columns(12);
+  }
+  @include media($l) {
+    @include span-columns(12);
+  }
+  @include media($xl) {
+    @include span-columns(6);
+  }
+}
+
+// 100% width
+@mixin full-span {
+  @include media($xs) {
+    @include span-columns(12);
+  }
+  @include media($s) {
+    @include span-columns(12);
+  }
+  @include media($m) {
+    @include span-columns(12);
+  }
+  @include media($l) {
+    @include span-columns(12);
+  }
+  @include media($xl) {
+    @include span-columns(12);
+  }
+}
+
+/// Makes an element a outer container by centring it in the viewport, clearing its floats, and setting its `max-width`.
+/// Although optional, using `outer-container` is recommended. The mixin can be called on more than one element per page, as long as they are not nested.
+///
+/// @param {Number [unit]} $local-max-width [$max-width]
+///   Max width to be applied to the element. Can be a percentage or a measure.
+///
+/// @example scss - Usage
+///   .element {
+///     @include outer-container(100%);
+///   }
+///
+/// @example css - CSS Output
+///   .element {
+///     *zoom: 1;
+///     max-width: 100%;
+///     margin-left: auto;
+///     margin-right: auto;
+///   }
+///
+///   .element:before, .element:after {
+///     content: " ";
+///     display: table;
+///   }
+///
+///   .element:after {
+///     clear: both;
+///   }
+@mixin outer-container($local-max-width: $max-width) {
+  @include clearfix;
+  max-width: $local-max-width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding-left:2rem;
+  padding-right:2rem;
+
+  @include media($l-up) {
+    padding-left:3rem;
+    padding-right:3rem;
+  }
+
+  @include media($xl-up) {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}
+
+@mixin box($color: white) {
+  background:linear-gradient(to bottom, $color 50%, darken($color, 4%) 100%), $color;
+  padding:2rem;
+  border-radius: 0.5rem;
+  box-shadow:0 0.2rem 0.2rem rgba(black, 0.3);
+
+  // Any vertical menu active items in this box can spread a little wider, so the active element box stretches beyond the edges of this box
+  .vertical-menu > .vertical-menu__item > .vertical-menu__link.active,
+  .vertical-menu > .vertical-menu__item > a.active {
+    margin:0 -2.5rem;
+    padding-left:2.5rem;
+  }
+}

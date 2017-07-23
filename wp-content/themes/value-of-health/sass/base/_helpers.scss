@@ -1,0 +1,152 @@
+// Hide elements
+.hide {
+  display:none !important;
+}
+.hide--s {
+  @include media($s) {
+    display: none !important;
+  }
+}
+.hide--m {
+  @include media($m) {
+    display: none !important;
+  }
+}
+.hide--l {
+  @include media($l) {
+    display: none !important;
+  }
+}
+.hide--xl {
+  @include media($xl) {
+    display: none !important;
+  }
+}
+
+// Show elements
+.show {
+  display:block !important;
+}
+
+// Margin
+.margin--none {
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+
+.margin--top {
+  margin-top:$base-spacing !important;;
+}
+
+.margin--large-top,
+.margin--top-large {
+  margin-top:$base-spacing * 2 !important;;
+}
+
+.margin--small-top,
+.margin--top-small {
+  margin-top:$base-spacing * 0.5 !important;;
+}
+
+.margin--bottom {
+  margin-bottom:$base-spacing !important;;
+}
+
+.margin--large-bottom,
+.margin--bottom-large {
+  margin-bottom:$base-spacing * 2 !important;;
+}
+
+.margin--none-bottom,
+.margin--bottom-none {
+  margin-bottom:0 !important;
+}
+
+.margin--small-bottom,
+.margin--bottom-small {
+  margin-bottom:$base-spacing * 0.5 !important;
+}
+
+// Text
+.text--white {
+  color:white !important;
+}
+
+.text--black {
+  color:black !important;
+}
+
+.text--left {
+  text-align: left;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--right {
+  text-align: right;
+}
+
+.text--bold {
+  font-weight: 800 !important;
+}
+
+.text--expand {
+  @include media($l-up) {
+    letter-spacing: 0.4rem;
+  }
+}
+
+.text--divider {
+  padding:0 5px;
+}
+
+// Positioning
+.position--center-vertical {
+  display:flex;
+  align-content:center;
+  align-items:center;
+}
+
+.position--relative {
+  position:relative;
+}
+
+// Icons
+
+.icon--inline { // An icon positioned to the left of text
+  padding-right:0.5rem;
+}
+
+// Grid
+.grid--one-quarter {
+  @include one-quarter-nom;
+}
+.grid--one-quarter-o {
+  @include one-quarter;
+}
+
+.grid--half {
+  @include one-half-nom;
+}
+.grid--half-o {
+  @include one-half;
+}
+
+.grid--two-thirds {
+  @include two-thirds-nom;
+}
+
+.grid--one-third {
+  @include one-third-nom;
+}
+.grid--one-third-o {
+  @include one-third;
+}
+
+.grid--three-quarters {
+  @include three-quarters-nom;
+}

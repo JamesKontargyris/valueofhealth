@@ -1,0 +1,26 @@
+ //Neat Overrides
+ $column: 69px;
+ $gutter: 58px;
+ $grid-columns: 12;
+ $max-width: 1400px;
+
+// Breakpoints
+$breakpoints: (
+  'xs': 320px,
+  's': 480px,
+  'm': 768px,
+  'l': 1000px
+);
+
+$xs: new-breakpoint(max-width map-get($breakpoints, 'xs') - 1);
+
+ $s: new-breakpoint(min-width map-get($breakpoints, 'xs') max-width map-get($breakpoints, 's') - 1);
+$s-up: new-breakpoint(min-width map-get($breakpoints, 'xs') + 1);
+
+ $m: new-breakpoint(min-width map-get($breakpoints, 's') max-width map-get($breakpoints, 'm') - 1);
+$m-up: new-breakpoint(min-width map-get($breakpoints, 's') + 1);
+ $l: new-breakpoint(min-width map-get($breakpoints, 'm') max-width map-get($breakpoints, 'l') - 1);
+$l-up: new-breakpoint(min-width map-get($breakpoints, 'm') + 1);
+
+ $xl: new-breakpoint(min-width map-get($breakpoints, 'l'));
+$xl-up: new-breakpoint(min-width map-get($breakpoints, 'l')+ 1);

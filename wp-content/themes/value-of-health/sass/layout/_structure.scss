@@ -1,0 +1,92 @@
+#primary {
+  @include span-columns(12);
+  @include media($l-up) { @include span-columns(8); }
+  &.full-width { @include span-columns(12); }
+  //If layout includes the sidebar on the left, shift the primary column to the right
+  //so it appears first on mobile displays but to the right on desktop displays
+  &.left-sidebar { @include media($l-up) { @include shift(4); } }
+  &.narrow-column {
+    @include media($l-up) { @include span-columns(9.5); @include shift(1.5); }
+  }
+}
+
+#secondary {
+  @include span-columns(12);
+  @include media($l-up) { @include span-columns(4); }
+  aside {
+    @include clearfix;
+    margin-bottom:$base-spacing;
+    padding-bottom:$base-spacing;
+    border-bottom:1px solid darken($light-grey, 10%);
+
+    &:last-of-type {
+      margin-bottom:0;
+      padding-bottom:0;
+      border-bottom:none;
+    }
+  }
+  //If layout includes the sidebar on the left, shift the secondary column to the left
+  //so it appears first on desktop displays but second on mobile displays
+  &.left-sidebar { @include media($l-up) { @include shift(-12); } }
+
+}
+
+
+.container {
+  @include outer-container();
+}
+.container--with-padding {
+  @include outer-container();
+  padding-top:$base-spacing * 2;
+  padding-bottom:$base-spacing * 2;
+}
+.container--with-large-padding {
+  @include outer-container();
+  padding-top:$base-spacing * 4;
+  padding-bottom:$base-spacing * 4;
+}
+.container--narrow {
+  @include media($xl-up) {
+    padding-left:$column * 2;
+    padding-right:$column * 2;
+  }
+}
+
+.sidebar-content {
+  margin-top: $base-spacing * 2;
+
+  @include media($xl-up) {
+    margin-top:0;
+  }
+}
+
+.structure--sidebar {
+  @include media($xl-up) {
+    @include span-columns(3.5);
+  }
+}
+
+.structure--main-col {
+  @include media($xl-up) {
+    @include span-columns(8.5);
+  }
+}
+
+.structure--main-col--full-width {
+  @include media($xl-up) {
+    @include span-columns(12);
+  }
+}
+
+.structure--sidebar--pull-left {
+  @include media($xl-up) {
+    @include shift(-12);
+  }
+}
+
+.structure--main-col--pull-right {
+  @include media($xl-up) {
+    @include shift(3.5);
+  }
+}
+
