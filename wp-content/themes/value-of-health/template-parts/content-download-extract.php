@@ -9,7 +9,7 @@
             <div class="download-extract__title"><?php echo get_the_title(); ?></div>
             <div class="download-extract__meta"><?php echo get_field('file_type'); ?> &bull; <?php echo get_field('file_size'); ?>
                 <br>Added: <?php echo get_the_date('d F Y'); ?></div>
-            <a href="<?php echo get_field('file'); ?>" download="download" class="button button--primary"><?php echo get_field('button_text'); ?></a>
+            <a href="<?php echo get_field('file'); ?>" download class="button button--primary"><?php echo get_field('button_text'); ?></a>
         </div>
         <div class="download-extract__details-col2">
             <div class="download-extract__description"><?php echo get_field('description'); ?></div>
