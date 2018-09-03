@@ -14,12 +14,14 @@
 
 get_header(); ?>
 
+<?php if(! is_front_page()) : ?>
     <div class="page-heading-group">
-		<?php if(! is_front_page()) the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<?php if(get_field('lead_paragraph')) : ?>
             <h4><?php echo get_field('lead_paragraph'); ?></h4>
 		<?php endif; ?>
     </div>
+<?php endif; ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
