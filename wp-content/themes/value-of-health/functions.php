@@ -120,6 +120,15 @@ function value_of_health_widgets_init() {
 		'before_title'  => '<h6 class="widget-title sidebar-block__title">',
 		'after_title'   => '</h6>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Homepage Sidebar', 'value-of-health' ),
+		'id'            => 'home-sidebar',
+		'description'   => esc_html__( 'Add widgets to the homepage sidebar here.', 'value-of-health' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s sidebar-block">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h6 class="widget-title sidebar-block__title">',
+		'after_title'   => '</h6>',
+	) );
 }
 add_action( 'widgets_init', 'value_of_health_widgets_init' );
 
